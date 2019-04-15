@@ -91,15 +91,16 @@ $results = $service->events->listEvents($calendarId, $optParams);
 $events = $results->getItems();
 
 if (empty($events)) {
-    print "No upcoming events found.\n";
+    print "No upcoming events found.<br>";
 } else {
-    print "Upcoming events:\n";
+    print "Upcoming events:<br><br>";
     foreach ($events as $event) {
         $start = $event->start->dateTime;
         if (empty($start)) {
             $start = $event->start->date;
         }
-        printf("%s (%s)\n", $event->getSummary(), $start);
+        echo 'Id_event:'.$event->getId().'<br>';
+        printf("%s (%s)<br><br>", $event->getSummary(), $start);
     }
 }
 // [END calendar_quickstart]
